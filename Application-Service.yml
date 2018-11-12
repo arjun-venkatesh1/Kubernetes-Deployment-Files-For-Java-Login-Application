@@ -4,7 +4,7 @@ metadata:
   name: Application
   labels:
     name: Login-App-Service
-    app: Login-Apppication
+    app: Login-Application
 spec:
   type: LoadBalancer
   ports:
@@ -12,4 +12,4 @@ spec:
     targetPort: 8080
   selector:
     name: App-Pod
-    app: Login-Apppication
+    app: Login-Application
