@@ -4,11 +4,11 @@ metadata:
   name: mysql
   labels:
     name: MysqlDB-Service
-    app: Login-Apppication
+    app: Login-Application
 spec:
   ports:
   - port: 3306
     targetPort: 3306
   selector:
     name: MysqlDB-Pod
-    app: Login-Apppication
+    app: Login-Application
