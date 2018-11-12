@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   name: MysqlDB-Deployment
   labels:
-    app: Login-Apppication
+    app: Login-Application
 spec:
   replicas: 1
   selector:
     matchLabels:
       name: MysqlDB-Pod
-      app: Login-Apppication
+      app: Login-Application
   template:
     metadata:
       name: MysqlDB
       labels:
         name: MysqlDB-Pod
-        app: Login-Apppication
+        app: Login-Application
     spec:
       containers:
       - name: mysql
