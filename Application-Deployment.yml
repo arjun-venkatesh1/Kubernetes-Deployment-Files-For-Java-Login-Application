@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Application-Deployment
+  labels:
+    app: Login-Apppication
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      name: App-Pod
+      app: Login-Apppication
+  template:
+    metadata:
+      name: Application
+      labels:
+        name: App-Pod
+        app: Login-Apppication
+    spec:
+      containers:
+      - name: Login-App
+        image: arjunvyadav/loginapplication:1.0
+        ports:
+        - containerPort: 8080

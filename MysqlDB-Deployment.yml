@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: MysqlDB-Deployment
+  labels:
+    app: Login-Apppication
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: MysqlDB-Pod
+      app: Login-Apppication
+  template:
+    metadata:
+      name: MysqlDB
+      labels:
+        name: MysqlDB-Pod
+        app: Login-Apppication
+    spec:
+      containers:
+      - name: mysql
+        image: arjunvyadav/mysql:1.0
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: persistent-volume
+          mountPath: /var/lib/mysql
+      nodeSelector:
+        type: backend
+      volumes:
+      - name: Data-Persistent-Volume
+        hostPath:
+          path: /var/mysql_data_backup
+          type: DirectoryOrCreate
