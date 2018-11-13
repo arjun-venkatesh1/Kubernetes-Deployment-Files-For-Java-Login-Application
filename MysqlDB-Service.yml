@@ -3,12 +3,12 @@ kind: Service
 metadata:
   name: mysql
   labels:
-    name: MysqlDB-Service
-    app: Login-Application
+    name: mysqldb-service
+    app: login-application
 spec:
   ports:
   - port: 3306
     targetPort: 3306
   selector:
-    name: MysqlDB-Pod
-    app: Login-Application
+    name: mysqldb-pod
+    app: login-application
