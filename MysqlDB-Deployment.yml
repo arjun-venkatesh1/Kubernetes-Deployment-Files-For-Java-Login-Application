@@ -31,7 +31,7 @@ spec:
       nodeSelector:
         type: backend
       volumes:
-      - name: data-persistent-volume
+      - name: persistent-volume
         hostPath:
           path: /var/mysql_data_backup
           type: DirectoryOrCreate
