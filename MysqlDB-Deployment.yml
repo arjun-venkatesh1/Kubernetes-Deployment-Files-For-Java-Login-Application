@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: MysqlDB-Deployment
+  name: mysqldb-deployment
   labels:
-    app: Login-Application
+    app: login-application
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: MysqlDB-Pod
-      app: Login-Application
+      name: mysqldb-pod
+      app: login-application
   template:
     metadata:
-      name: MysqlDB
+      name: mysqldb
       labels:
-        name: MysqlDB-Pod
-        app: Login-Application
+        name: mysqldb-pod
+        app: login-application
     spec:
       containers:
       - name: mysql
@@ -31,7 +31,7 @@ spec:
       nodeSelector:
         type: backend
       volumes:
-      - name: Data-Persistent-Volume
+      - name: data-persistent-volume
         hostPath:
           path: /var/mysql_data_backup
           type: DirectoryOrCreate
